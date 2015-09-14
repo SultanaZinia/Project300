@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: youssouf's
 Build-Jdk: 1.8.0_45
+=======
+Built-By: SultanaRazia
+Build-Jdk: 1.8.0_05
+>>>>>>> 453e7e880bb703ce69fa3c8b988189dfcef3f278
 Created-By: Maven Integration for Eclipse
 

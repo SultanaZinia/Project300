@@ -19,7 +19,6 @@ public class HomeController {
 	@RequestMapping("/")
 	public String showIndex(){
 		//System.out.println("Spring - Great Web Index Controller!");
-		return "tasks";
+		return "login";
 	}
-
 }

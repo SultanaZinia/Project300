@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService, Serializable {
 
 	@Override
 	public User getUserByName(String userName) {
-		User user;
+		User user= null;
 		
 		user=userDao.findUserByName(userName);
 		

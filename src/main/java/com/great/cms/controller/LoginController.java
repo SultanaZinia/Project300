@@ -25,9 +25,13 @@ public class LoginController {
 			@RequestParam("password") String password ,Model model){
 		
 		
-		User user =new User();
+		User user =null;
 		
 		user=userService.getUserByName(username);
+		if(user==null){
+			model.addAttribute("message", "Invalid usrname or password");
+			return "login";
+		}
 		
 		if(user.getPassword().equals(password)){
 			
@@ -39,7 +43,7 @@ public class LoginController {
 		}
 		
 		else {
-			model.addAttribute("message", "Invalid usrname and password");
+			model.addAttribute("message", "Invalid usrname or password");
 			return "login";
 		}
 		

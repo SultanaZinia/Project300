@@ -32,6 +32,7 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long>implements UserDao {
  		}
 		catch(Exception e){
 			System.out.println("*******failure*******: " +e.getMessage());
+			return user;
         }
 		    System.out.println("*******successful*******");
 		return user;

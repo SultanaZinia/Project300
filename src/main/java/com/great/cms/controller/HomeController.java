@@ -26,8 +26,7 @@ public class HomeController {
 		//System.out.println("Spring - Great Web Index Controller!");
 		return "login";
 	}
-<<<<<<< HEAD
-=======
+
 
 	@RequestMapping("/submission")
 	public String showSubmission(){
@@ -42,5 +41,4 @@ public class HomeController {
 		return "project-groups";
 	}
 	
->>>>>>> 2bcdb944386e4161dc233dcc78ca38a9f8b3822b
 }

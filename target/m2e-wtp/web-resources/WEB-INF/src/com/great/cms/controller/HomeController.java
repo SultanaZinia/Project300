@@ -18,13 +18,13 @@ public class HomeController {
 	@RequestMapping("/")
 	public String showIndex(){
 		//System.out.println("Spring - Great Web Hello Controller!");
-		return "index";
+		return "login";
 	}
 	
 	@RequestMapping("/tasks")
 	public String showTasks(){
 		//System.out.println("Spring - Great Web Index Controller!");
-		return "login";
+		return "index";
 	}
 
 

@@ -41,8 +41,12 @@
 
 	<form action="checklogin" method="post">
 		<p id="login_status_message"><c:out value ='${message}'/></p>
-		<input id="username" name="username"></input> <input id="password"
-			name="password" type="password"></input> <input type="submit"
+		  User name:<br>
+		<input id="username" name="username"></input>
+		  <br>Password:<br> 
+		<input id="password"name="password" type="password"></input> 
+		<br> <br>
+		<input type="submit"
 			value="Log in"></input>
 	</form>
 </body>

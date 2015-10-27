@@ -12,41 +12,38 @@ import com.great.cms.db.entity.User;
 import com.great.cms.service.UserService;
 
 @Controller
-
 public class LoginController {
-	
-	@Autowired 
-	private  UserService userService;
-	
 
-	
+	@Autowired
+	private UserService userService;
+
 	@RequestMapping("/checklogin")
-	public String checkLogin(@RequestParam("username") String username, 
-			@RequestParam("password") String password ,Model model){
-		
-		
-		User user =null;
-		
-		user=userService.getUserByName(username);
-		if(user==null){
+	public String checkLogin(@RequestParam("username") String username, @RequestParam("password") String password,
+			Model model) {
+
+		User user = null;
+
+		user = userService.getUserByName(username);
+		if (user == null) {
 			model.addAttribute("message", "Invalid usrname or password");
 			return "login";
 		}
-		
-		if(user.getPassword().equals(password)){
-			
-		
-		
-		System.out.println("Username: "+username);
-		System.out.println("Password: "+password);
-		return "tasks";
+
+		if (user.getPassword().equals(password)) {
+
+			System.out.println("Username: " + username);
+
+			System.out.println("Password: " + password);
+			model.addAttribute("username", username);
+
+			return "course";
 		}
-		
+
 		else {
 			model.addAttribute("message", "Invalid usrname or password");
 			return "login";
 		}
-		
+
 	}
-	
+
 }

@@ -8,7 +8,9 @@ public interface TeacherCourseService {
 
 	
 	
-	public String getCourseListByUserId(Long userId);
+	public List<Course> getCourseListByUserId(Long userId);
 	
-	public String getCourseListByInstructionId(Long InstId);
+	public List<Course> getCourseListByInstructionId(Long InstId);
+	
+	public List<Course> getCourseListByUsername(String UserName);
 }

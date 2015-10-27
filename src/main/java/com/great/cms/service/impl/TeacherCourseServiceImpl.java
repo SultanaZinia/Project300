@@ -13,10 +13,12 @@ import org.springframework.stereotype.Service;
 import com.great.cms.db.dao.CourseDao;
 import com.great.cms.db.dao.TeacherDao;
 import com.great.cms.db.dao.TeachesDao;
+import com.great.cms.db.dao.UserDao;
 import com.great.cms.db.entity.Course;
 import com.great.cms.db.entity.Task;
 import com.great.cms.db.entity.Teacher;
 import com.great.cms.db.entity.Teaches;
+import com.great.cms.db.entity.User;
 import com.great.cms.service.TeacherCourseService;
 
 
@@ -39,6 +41,9 @@ public class TeacherCourseServiceImpl implements TeacherCourseService, Serializa
 	private TeachesDao teachesDao;
 	@Autowired
 	private CourseDao courseDao;
+	
+	@Autowired
+	private UserDao userDao;
 
 	List<Course> list = new ArrayList<>();
 	List<Teaches> teaches = new ArrayList<>();
@@ -47,7 +52,7 @@ public class TeacherCourseServiceImpl implements TeacherCourseService, Serializa
 	private JSONArray jsonArray;
 
 	@Override
-	public String getCourseListByUserId(Long userId) {
+	public List<Course> getCourseListByUserId(Long userId) {
 
 		teacher = teacherDao.findByUserId(userId);
 		for (Teacher teachers : teacher) {
@@ -68,44 +73,13 @@ public class TeacherCourseServiceImpl implements TeacherCourseService, Serializa
 			}
 		}
 		
-		jsonArray = new JSONArray();
-		if(list==null)
-			System.out.println("list is null");
-	    for(Course t: list)
-	    {
-	    	JSONArray jObj = new JSONArray();
-	    	jObj.add(t.getCourseId().toString());
-	    	jObj.add(t.getCourseTitle());
-	    	jObj.add(t.getCourseCode());
-	    	jObj.add(String.valueOf(t.getCredit()));
-	    	jObj.add(String.valueOf(t.getSemester()));
-	    	jObj.add(String.valueOf(t.getSession()));
-	    	jObj.add(t.getAcceptingDept());
-	    	jObj.add(t.getOfferingDept());
-	    	
-	    	
-	    	jsonArray.add(jObj);  	
-	    	
-
-	    }
-	    JSONObject parameters = new JSONObject();
-
-    	parameters.put("draw", 1);
-
-    	parameters.put("recordsTotal", 1 );
     	
-    	parameters.put("recordsFiltered", 1 );
-    	
-    	parameters.put("data", jsonArray);
-    	
-    	String courseJson = parameters.toJSONString();
-    	
-		return courseJson;
+		return list;
 
 	}
 
 	@Override
-	public String getCourseListByInstructionId(Long InstId) {
+	public List<Course> getCourseListByInstructionId(Long InstId) {
 		List<Teaches> teach = new ArrayList<>();
 
 		List<Course> course = new ArrayList<>();
@@ -116,40 +90,19 @@ public class TeacherCourseServiceImpl implements TeacherCourseService, Serializa
 			course.add(teaches.getCourseId());
 
 		}
-		jsonArray = new JSONArray();
-		if(list==null)
-			System.out.println("list is null");
-	    for(Course t: list)
-	    {
-	    	JSONArray jObj = new JSONArray();
-	    	jObj.add(t.getCourseId().toString());
-	    	jObj.add(t.getCourseTitle());
-	    	jObj.add(t.getCourseCode());
-	    	jObj.add(String.valueOf(t.getCredit()));
-	    	jObj.add(String.valueOf(t.getSemester()));
-	    	jObj.add(String.valueOf(t.getSession()));
-	    	jObj.add(t.getAcceptingDept());
-	    	jObj.add(t.getOfferingDept());
-	    	
-	    	
-	    	jsonArray.add(jObj);  	
-	    	
-
-	    }
-	    JSONObject parameters = new JSONObject();
-
-    	parameters.put("draw", 1);
-
-    	parameters.put("recordsTotal", 1 );
+		
     	
-    	parameters.put("recordsFiltered", 1 );
-    	
-    	parameters.put("data", jsonArray);
-    	
-    	String courseJson = parameters.toJSONString();
-    	
-		return courseJson;
+		return course;
 
+	}
+
+	@Override
+	public List<Course> getCourseListByUsername(String UserName) {
+		System.out.println("TeacherCourseService");
+		User user = userDao.findUserByName(UserName);
+		
+		list=getCourseListByUserId(user.getUserId());
+		return list;
 	}
 
 }

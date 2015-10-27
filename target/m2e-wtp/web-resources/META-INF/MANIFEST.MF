@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: SultanaRazia
 Build-Jdk: 1.8.0_05
+=======
+Built-By: Saimon
+Build-Jdk: 1.7.0_45
+>>>>>>> 1c3a93379e19d880b77062a7c8cc826a2c0f33f6
 Created-By: Maven Integration for Eclipse
 

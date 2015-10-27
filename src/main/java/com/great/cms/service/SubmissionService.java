@@ -6,4 +6,7 @@ public interface SubmissionService {
 	
 	public void updateSubmission(Submission submission);
 	
+	public void saveSubmission(Submission submission);
+	
+
 }

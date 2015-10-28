@@ -20,17 +20,18 @@ import com.great.cms.service.TaskProjectService;
 public class ProjectController {
 	
 	@Autowired
-	private TaskProjectService taskProjectService; 
+	private TaskProjectService taskProjectService;
 	private JSONArray jsonArray;
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(method=RequestMethod.GET,value="/ajaxprojects")
-	public @ResponseBody String getProjectList(Model model)
+	public @ResponseBody String getProjectList(Model model,@RequestParam("task_id") int taskId)
 	{
 		System.out.println("Project Controller -> getProjectList");
+		System.out.println("Task Id: "+taskId);
 		List<Project> projectList = null;
 		
-		projectList =  taskProjectService.findProjectsByTaskID(1);
+		projectList =  taskProjectService.findProjectsByTaskID(taskId);
 		
 		System.out.println("Project Controller -> getProjectList " + projectList);
 		
@@ -80,18 +81,19 @@ public class ProjectController {
 	
 }
 	@RequestMapping(value="/addproject",method=RequestMethod.POST)
-    public @ResponseBody String addSubmission(Project project,int taskId)
+    public @ResponseBody String addSubmission(Project project)
     {
 		System.out.println("Project Controller -> addproject");
+		// TODO: to which task are we adding this project!? Current function param is static
 		taskProjectService.addProjectOfTask(project, 1);
 		return "{ \"success\" : true }";
     }
 	
 	@RequestMapping(value="/updateproject",method=RequestMethod.POST)
-    public @ResponseBody String updateProject(Project project,int taskId)
+    public @ResponseBody String updateProject(Project project)
     {
 		System.out.println("Project Controller -> updateProject");
-		taskProjectService.updateProjectOfTask(project, taskId);
+		taskProjectService.updateProject(project);
 		return "{ \"success\" : true }";
     }
 	

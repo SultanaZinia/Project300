@@ -21,7 +21,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 
 
 import com.great.cms.bean.SubmissionBean;
@@ -135,7 +135,7 @@ public class SubmissionController {
 	public @ResponseBody String doUpload(Submission submission, 
 			@RequestParam("file") MultipartFile multipartFile
 			) throws FileNotFoundException { 
-		    System.out.println("We're in a new method.\nfilename: "
+		    System.out.println("We're in addSubmission/doUpload method.\nfilename: "
 			+multipartFile.getOriginalFilename()
 			+"\nComment: "+submission.getCommentTeacher());
 		    
@@ -168,9 +168,9 @@ public class SubmissionController {
 //		    }
 		    
 		    //Saving the Submission Entity//
-		   // submissionService.saveSubmission(submission);
+		   submissionService.saveSubmission(submission,2,multipartFile);
 		   
-		projGrpSubService.addProjectGroupSubmit(submission, 2, multipartFile);
+		//projGrpSubService.addProjectGroupSubmit(submission, 2, multipartFile);
 	    return "Uploaded: " + multipartFile.getSize() + " bytes";
 	}
 	
@@ -196,6 +196,7 @@ public class SubmissionController {
 			//Read from the file and write into the response
 			ServletOutputStream os = response.getOutputStream();
 			
+			
 			byte[] buffer = new byte[1024];
 			int len;
 			while((len=inputStream.read(buffer))!= -1){
@@ -217,7 +218,12 @@ public class SubmissionController {
 		return "{ \"success\" : true }";
 	}
 	
+	@RequestMapping(value = "/deletesubmission", method = RequestMethod.POST)
+	public @ResponseBody String deleteSubmission(@RequestParam("submissionId") int submissionId) {
 
+		submissionService.deleteSubmission(submissionId);
+		return "{ \"success\" : true }";
+	}
 	
 	
 

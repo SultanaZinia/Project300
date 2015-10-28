@@ -20,13 +20,13 @@ public class HomeController {
 	@RequestMapping("/")
 	public String showIndex(){
 		//System.out.println("Spring - Great Web Hello Controller!");
-		return "login";
+		return "index";
 	}
 	
 	@RequestMapping("/tasks")
 	public String showTasks(){
 		//System.out.println("Spring - Great Web Index Controller!");
-		return "index";
+		return "tasks";
 	}
 
 
@@ -41,6 +41,11 @@ public class HomeController {
 		System.out.println("Project Group  Page Mapping");
 		//return "project-groups";
 		return "project-groups";
+	}
+	@RequestMapping(value="/course")
+	public String showCourse(){
+		System.out.println("Course Mapping");
+		return "course";
 	}
 	
 }

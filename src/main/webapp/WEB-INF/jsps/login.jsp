@@ -48,6 +48,24 @@
 		<br> <br>
 		<input type="submit"
 			value="Log in"></input>
+<!--  	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<th>Username:</th>
+			<td><form:input type="text" id="username" name="username" /></td>
+		</tr>
+		<tr>
+			<th>Password:</th>
+			<td><form:input type="password" id="password" value="************"  onfocus="this.value=''"  name="password"/></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td valign="top"><input type="checkbox" class="checkbox-size" id="login-check" /><label for="login-check">Remember me</label></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td><input type="submit" class="submit-login" value="Log In" "  /></td>
+		</tr>
+	</table>-->
 	</form>
 </body>
 </html>

@@ -7,7 +7,9 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -30,16 +32,16 @@ public class CourseController {
 	
 	private JSONArray jsonArray;
 
-	@RequestMapping("/course")
-	public @ResponseBody  String getCourse(@RequestParam("username") String username,Model model) {
+	@RequestMapping(method = RequestMethod.GET, value = "/course")
+	public @ResponseBody  String getCourse(Model model) {
 		System.out.println("Course Controller");
 		/*String courses = courseService.getCourseListByUserId(userId);//courseRepository.findAll();		
 	*/
-	    List<Course> courses = courseService.getCourseListByUsername(username);
+	    List<Course> courses = courseService.getCourseListByUsername("sknabil");
 		model.addAttribute("courses", courses);
 		
 		
-		jsonArray = new JSONArray();
+		/*jsonArray = new JSONArray();
 		if(courses==null)
 			System.out.println("list is null");
 	    for(Course t: courses)
@@ -71,7 +73,10 @@ public class CourseController {
     	
     	String courseJson = parameters.toJSONString();
     	
-		return courseJson;
+		return courseJson;*/
+		return "course";
+		
+		
 		
 	}
 

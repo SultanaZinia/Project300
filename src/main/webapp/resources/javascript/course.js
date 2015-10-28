@@ -1,3 +1,4 @@
+var courseURL = "course";
 $(document).ready(function() {
     //var taskTable;
     //$('[data-toggle="tooltip"]').tooltip();
@@ -17,5 +18,6 @@ $(document).ready(function() {
 	$('#course_table').on('click', 'th', function(event) {
 		alert('click click!');
     });
+	
     	
 });

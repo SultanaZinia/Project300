@@ -74,5 +74,14 @@ public class ProjectGroupController {
 		return groupJson;
 	
 }
+	@RequestMapping(value="/addgroup",method=RequestMethod.POST)
+    public @ResponseBody String addGroup(String groupName,Task projectId ,List<Student> studentList )
+    {
+		System.out.println("ProjectGroupController  -> addgroup");
+		
+		projectGroupService.addNewGroupOfTask(projectId, groupName, studentList);
+		
+		return "{ \"success\" : true }";
+    }
 	
 }

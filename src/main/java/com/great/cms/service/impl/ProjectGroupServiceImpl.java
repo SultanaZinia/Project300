@@ -67,8 +67,31 @@ public class ProjectGroupServiceImpl implements ProjectGroupService,Serializable
 	}
 
 	@Override
-	public void updateProjectGroup(int projectGroupID, Groups group) {
-		// TODO Auto-generated method stub
+	public void editGroupofProject(int groupId, List<Student> studentList) {
+		
+		Groups group = groupsDao.findById(groupId);
+		
+		List<StudentGroup> studgroupList= studentGroupDao.findStudentByGroupId(groupId);
+		
+		for(StudentGroup sg:studgroupList )
+		{
+			studentGroupDao.delete(sg);
+		}
+		for(Student s: studentList)
+		{
+			StudentGroup studentGroup =new StudentGroup();
+			studentGroup.setGroupId(group);
+			studentGroup.setStudentId(s);
+			studentGroupDao.save(studentGroup);
+			
+			
+		}
+		
+	}
+
+	@Override
+	public void deleteGroupOfProject(int groupId) {
+		groupsDao.deleteById(groupId);
 		
 	}
 

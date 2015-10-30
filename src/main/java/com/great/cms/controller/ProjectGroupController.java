@@ -75,11 +75,31 @@ public class ProjectGroupController {
 	
 }
 	@RequestMapping(value="/addgroup",method=RequestMethod.POST)
-    public @ResponseBody String addGroup(String groupName,Task projectId ,List<Student> studentList )
+    public @ResponseBody String addGroup(int projectId ,String groupName,List<Student> studentList,int taskId )
     {
 		System.out.println("ProjectGroupController  -> addgroup");
 		
-		projectGroupService.addNewGroupOfTask(projectId, groupName, studentList);
+		projectGroupService.addGroupOfProject(projectId, groupName, studentList, taskId);
+		
+		return "{ \"success\" : true }";
+    }
+	
+	@RequestMapping(value="/editgroup",method=RequestMethod.POST)
+    public @ResponseBody String editGroup(int groupId ,List<Student> studentList )
+    {
+		System.out.println("ProjectGroupController  -> editgroup");
+		
+		projectGroupService.editGroupofProject(groupId, studentList);
+		
+		return "{ \"success\" : true }";
+    }
+	
+	@RequestMapping(value="/deletegroup",method=RequestMethod.POST)
+    public @ResponseBody String deleteGroup(int groupId  )
+    {
+		System.out.println("ProjectGroupController  -> deletegroup");
+		
+		projectGroupService.deleteGroupOfProject(groupId);
 		
 		return "{ \"success\" : true }";
     }

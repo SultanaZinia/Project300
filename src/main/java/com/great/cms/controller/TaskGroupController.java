@@ -97,7 +97,7 @@ public class TaskGroupController {
     }
 	
 	//@RequestMapping(value="/deletegroup",method=RequestMethod.POST)
-    public @ResponseBody String editGroup(int groupId  )
+    public @ResponseBody String deleteGroup(int groupId  )
     {
 		System.out.println("Group Controller -> deletegroup");
 		

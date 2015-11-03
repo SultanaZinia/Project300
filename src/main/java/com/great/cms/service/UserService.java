@@ -6,4 +6,6 @@ public interface UserService {
 
 	public User getUserByID(long id);
 	public User getUserByName(String userName);
+
 }
+

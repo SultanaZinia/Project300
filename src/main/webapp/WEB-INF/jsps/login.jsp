@@ -41,6 +41,7 @@
 
 	<form action="checklogin" method="post">
 		<p id="login_status_message"><c:out value ='${message}'/></p>
+<<<<<<< HEAD
 		  User name:<br>
 		<input id="username" name="username"></input>
 		  <br>Password:<br> 
@@ -66,6 +67,11 @@
 			<td><input type="submit" class="submit-login" value="Log In" "  /></td>
 		</tr>
 	</table>-->
+=======
+		<input id="username" name="username"></input> <input id="password"
+			name="password" type="password"></input> <input type="submit"
+			value="Log in"></input>
+>>>>>>> d0a811f7acc061096af66a4689905074b2df21fb
 	</form>
 </body>
 </html>

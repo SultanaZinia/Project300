@@ -5,6 +5,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,11 +34,11 @@ public class CourseController {
 	private JSONArray jsonArray;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/course")
-	public @ResponseBody  String getCourse(Model model) {
+	public  String getCourse(Model model, User user) {
 		System.out.println("Course Controller");
 		/*String courses = courseService.getCourseListByUserId(userId);//courseRepository.findAll();		
 	*/
-	    List<Course> courses = courseService.getCourseListByUsername("sknabil");
+	    List<Course> courses = courseService.getCourseListByUsername(user.getUsername());
 		model.addAttribute("courses", courses);
 		
 		

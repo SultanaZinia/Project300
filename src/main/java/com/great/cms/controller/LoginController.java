@@ -25,14 +25,18 @@ public class LoginController {
 
 	@Autowired
 	private UserService userService;
+	
+	
+	private User user=null;
+	
 	private JSONArray jsonArray;
 
 	@RequestMapping("/checklogin")
 	public  String checkLogin(@RequestParam("username") String username, @RequestParam("password") String password,
 			Model model) {
 
-		User user = null;
-
+		
+     try{
 		user = userService.getUserByName(username);
 		if (user == null) {
 			model.addAttribute("message", "Invalid usrname or password");
@@ -49,7 +53,25 @@ public class LoginController {
 			model.addAttribute("message", "Invalid usrname or password");
 			return "login";
 		}
+		}
+     catch(Exception e){
+    	 System.out.println("Exception in "+e);
+    	 return "login";
+     }
+     
 
+	}
+	@RequestMapping("/sign-in.html")
+	public String logOut(Model model){
+		try{
+		System.out.println("our current user" +user.getUserName());
+		return "login";
+		}
+		catch(Exception e){
+			System.out.println("exception "+e);
+			return "login";
+		}
+		
 	}
 
 }

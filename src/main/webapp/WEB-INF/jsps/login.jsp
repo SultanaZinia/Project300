@@ -10,6 +10,15 @@
 <title>SUST Archives</title>
 <link href="<c:url value="/resources/css/topbar.css" />"
 	rel="stylesheet" type="text/css" />
+	
+	<link href="<c:url value="/resources/css/reset.css" />"
+	rel="stylesheet" type="text/css" />
+	
+	<link href="<c:url value="/resources/css/animate.css" />"
+	rel="stylesheet" type="text/css" />
+	
+	<link href="<c:url value="/resources/css/styles.css" />"
+	rel="stylesheet" type="text/css" />
 
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet" type="text/css" />
@@ -32,14 +41,15 @@
 			class="
                  col-sm-4 col-sm-offset-1
                  col-xs-12">
-			<a class="navbar-brand" href="project-groups.html">SUST Archives<sup>beta</sup></a>
+			<a class="navbar-brand" href="/greatweb">SUST Archives<sup>beta</sup></a>
 		</div>
 	</div>
 	</nav>
 	</div>
 	</nav>
-
+<!--  
 	<form action="checklogin" method="post">
+<<<<<<< HEAD
 		<p id="login_status_message"><c:out value ='${message}'/></p>
 <<<<<<< HEAD
 		  User name:<br>
@@ -73,5 +83,46 @@
 			value="Log in"></input>
 >>>>>>> d0a811f7acc061096af66a4689905074b2df21fb
 	</form>
+=======
+		<p id="login_status_message">
+			<c:out value='${message}' />
+		</p>
+		<input id="username" name="user_name"></input> 
+		<input id="password"name="password" type="password"></input> 
+		<input type="submit" value="Log in"></input>
+	</form>  -->
+	
+
+     <div id="container">
+		
+		<form action="checklogin" method="post">
+		
+		<label for="name">Username:</label>
+		
+		<input type="name" id="username" name="user_name">
+		
+		<label for="username">Password:</label>
+		
+		
+		
+		<input id="password"name="password" type="password">
+		
+		<div id="lower">
+		
+		
+		
+		<input type="submit" value="Login">
+		
+		<p id="login_status_message">
+			<c:out value='${message}' />
+		</p>
+		
+		</div>
+		
+		</form>
+		
+	</div>
+	
+>>>>>>> fbcb89ffc8092d9ea7194463b4bb938039645baf
 </body>
 </html>

@@ -45,7 +45,7 @@ public class HomeController {
 		//return "project-groups";
 		return "project-groups";
 	}
-	@RequestMapping(value="/course")
+	@RequestMapping("/course")
 	public String showCourse(){
 		System.out.println("Course Mapping");
 		return "course";

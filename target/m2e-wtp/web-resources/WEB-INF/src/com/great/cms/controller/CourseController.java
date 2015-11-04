@@ -34,11 +34,11 @@ public class CourseController {
 	private JSONArray jsonArray;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/course")
-	public  String getCourse(Model model, User user) {
+	public  String getCourse(Model model) {
 		System.out.println("Course Controller");
 		/*String courses = courseService.getCourseListByUserId(userId);//courseRepository.findAll();		
 	*/
-	    List<Course> courses = courseService.getCourseListByUsername(user.getUsername());
+	    List<Course> courses = courseService.getCourseListByUsername("sknabil");
 		model.addAttribute("courses", courses);
 		
 		

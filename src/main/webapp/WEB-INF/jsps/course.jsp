@@ -29,7 +29,7 @@
 
 </head>
 <body>
-</body>
+
 <nav class="navbar navbar-default navbar-fixed-top">
 <div class="row topbar">
 	<!-- Brand and toggle get grouped for better mobile display -->
@@ -81,4 +81,5 @@
 		</table>
 	</div>
 	<a href="<c:url value="/"/>">Index Page</a>
+	</body>
 </html>

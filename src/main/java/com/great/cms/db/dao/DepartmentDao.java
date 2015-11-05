@@ -12,7 +12,7 @@ import com.great.cms.db.entity.User;
 public interface DepartmentDao extends GenericDao<Department, Integer> {
 	
 	
-	public List<Department> findByDeptCode(String deptCode);
+	public Department findByDeptCode(String deptCode);
 	
     
 	

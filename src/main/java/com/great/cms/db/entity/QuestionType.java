@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "QuestionType.findAll", query = "SELECT q FROM QuestionType q"),
     @NamedQuery(name = "QuestionType.findByQuestionTypeId", query = "SELECT q FROM QuestionType q WHERE q.questionTypeId = :questionTypeId"),
     @NamedQuery(name = "QuestionType.findByQuestionTypeName", query = "SELECT q FROM QuestionType q WHERE q.questionTypeName = :questionTypeName")})
-public class QuestionType implements Serializable {
+public class QuestionType implements Serializable,DomainObject {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)

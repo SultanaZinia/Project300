@@ -17,15 +17,15 @@ public class DepartmentDaoImpl extends GenericDaoImpl<Department, Integer> imple
 	
 	
 	@Override
-	public List<Department> findByDeptCode(String deptCode) {
-		List<Department> list = null;
+	public Department findByDeptCode(String deptCode) {
+		Department list = null;
 			try{
 				String query = "select o from " + type.getName() + " o where " +
      				   "o.deptCode = ?1 " +
      				   "order by o.deptCode ";
-     	list = em.createQuery(query)
+     	list = (Department)em.createQuery(query)
      			 .setParameter(1, deptCode)
-     			 .getResultList();
+     			 .getResultList().get(0);
      	
      	
      		}

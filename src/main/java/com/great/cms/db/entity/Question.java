@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Question.findAll", query = "SELECT q FROM Question q"),
     @NamedQuery(name = "Question.findByQuestionId", query = "SELECT q FROM Question q WHERE q.questionId = :questionId"),
     @NamedQuery(name = "Question.findByQuestionUrl", query = "SELECT q FROM Question q WHERE q.questionUrl = :questionUrl")})
-public class Question implements Serializable {
+public class Question implements Serializable,DomainObject {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

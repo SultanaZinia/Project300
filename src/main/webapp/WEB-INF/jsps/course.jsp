@@ -79,9 +79,8 @@
 			</tbody>
 		</table>
 	</div>
-<<<<<<< HEAD
+
 	<a href="<c:url value="/"/>">Index Page</a>
 	</body>
-=======
->>>>>>> fbcb89ffc8092d9ea7194463b4bb938039645baf
+
 </html>

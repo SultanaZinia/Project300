@@ -35,7 +35,7 @@ public class HomeController {
 		return "login";
 	}
 	
-	@RequestMapping("/course")
+	@RequestMapping("/ajaxcourse")
 	public String showCourse(){
 		//System.out.println("Spring - Great Web Hello Controller!");
 		return "course";

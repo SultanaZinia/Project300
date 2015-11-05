@@ -1,5 +1,5 @@
 var projectURL = "ajaxprojects";
-var groupURL = "ajaxgroups?project_id=0";
+var groupURL = "ajaxgroups";
 var addProjectURL = "addproject";
 var updateProjectURL = "updateproject";
 var deleteProjectURL = "deleteproject";

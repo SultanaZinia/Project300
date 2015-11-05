@@ -47,50 +47,9 @@
 	</nav>
 	</div>
 	</nav>
-<!--  
-	<form action="checklogin" method="post">
-<<<<<<< HEAD
-		<p id="login_status_message"><c:out value ='${message}'/></p>
-<<<<<<< HEAD
-		  User name:<br>
-		<input id="username" name="username"></input>
-		  <br>Password:<br> 
-		<input id="password"name="password" type="password"></input> 
-		<br> <br>
-		<input type="submit"
-			value="Log in"></input>
-<!--  	<table border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<th>Username:</th>
-			<td><form:input type="text" id="username" name="username" /></td>
-		</tr>
-		<tr>
-			<th>Password:</th>
-			<td><form:input type="password" id="password" value="************"  onfocus="this.value=''"  name="password"/></td>
-		</tr>
-		<tr>
-			<th></th>
-			<td valign="top"><input type="checkbox" class="checkbox-size" id="login-check" /><label for="login-check">Remember me</label></td>
-		</tr>
-		<tr>
-			<th></th>
-			<td><input type="submit" class="submit-login" value="Log In" "  /></td>
-		</tr>
-	</table>-->
-=======
-		<input id="username" name="username"></input> <input id="password"
-			name="password" type="password"></input> <input type="submit"
-			value="Log in"></input>
->>>>>>> d0a811f7acc061096af66a4689905074b2df21fb
-	</form>
-=======
-		<p id="login_status_message">
-			<c:out value='${message}' />
-		</p>
-		<input id="username" name="user_name"></input> 
-		<input id="password"name="password" type="password"></input> 
-		<input type="submit" value="Log in"></input>
-	</form>  -->
+
+
+
 	
 
      <div id="container">
@@ -123,6 +82,6 @@
 		
 	</div>
 	
->>>>>>> fbcb89ffc8092d9ea7194463b4bb938039645baf
+
 </body>
 </html>

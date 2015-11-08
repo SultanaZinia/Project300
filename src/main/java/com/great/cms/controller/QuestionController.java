@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.great.cms.bean.QuestionBean;
 import com.great.cms.db.dao.CourseDao;
@@ -24,6 +25,7 @@ import com.great.cms.service.QuestionService;
 import com.great.cms.service.SubmissionService;
 
 @Controller
+@SessionAttributes("organization")
 public class QuestionController {
 
 	@Autowired
@@ -31,6 +33,7 @@ public class QuestionController {
 	
 	@Autowired
     private CourseDao coursedao;
+	
 	@Autowired
 	private QuestionService questionService;
 
@@ -39,7 +42,7 @@ public class QuestionController {
 	private JSONArray jsonArray;
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(method = RequestMethod.GET, value = "/ajaxQuestions")
+	@RequestMapping(method = RequestMethod.GET, value = "/ajaxquestion")
 	public @ResponseBody
 	String getSubmissionList(Model model, @RequestParam("course_code") String CourseCode) {
 		System.out.println("Course Code"+CourseCode);

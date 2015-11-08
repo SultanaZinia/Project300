@@ -3,12 +3,14 @@ package com.great.cms.db.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.great.cms.db.dao.DepartmentDao;
 import com.great.cms.db.entity.CourseRegistration;
 import com.great.cms.db.entity.Department;
 
+@Repository("DepartmentDao")
 public class DepartmentDaoImpl extends GenericDaoImpl<Department, Integer> implements DepartmentDao {
 
 	public DepartmentDaoImpl() {

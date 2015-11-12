@@ -1,5 +1,5 @@
 var projectURL = "ajaxprojects";
-var groupURL = "ajaxgroups";
+var groupURL = "ajaxgroups?project_id=0";
 var addProjectURL = "addproject";
 var updateProjectURL = "updateproject";
 var deleteProjectURL = "deleteproject";
@@ -176,6 +176,7 @@ $(document)
 					$('#button_add_group').on(
 							'click',
 							function(e) {
+								$("#edit_group_id").val(0);
 								tempGroupURL = addGroupURL + '?project_id=' + projectID;
 								$('#modal_group_label').html("Add Project");
 								for ( var i = 0; i < 6; i++) {

@@ -32,7 +32,7 @@ import com.great.cms.service.TaskService;
 import com.great.cms.service.TaskTypeService;
 
 @Controller
-@SessionAttributes("organization")
+@SessionAttributes("UserRole")
 public class TaskController {
 
 	@Autowired
@@ -55,6 +55,7 @@ public class TaskController {
 		// TODO: static list of tasks displayed for course_id 1, change to dynamic
 		List<Task> tasks = taskService.getTaskListByCourseId(courseId);
 		model.addAttribute("tasks", tasks);
+		
 		jsonArray = new JSONArray();
 		if (tasks == null)
 			System.out.println("TaskController : LIST IS NULL");

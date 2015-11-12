@@ -33,4 +33,22 @@ public class StudentDaoImpl extends GenericDaoImpl<Student, Integer> implements 
 		}
 		return student;
 	}
+
+	@Override
+	public Student getStudentByUserId(Long userId) {
+		
+		Student student;
+		String query = "select o from " + type.getName()
+				+ " o where o.userId.userId = ?1";
+		try {
+			student = (Student) em.createQuery(query)
+					.setParameter(1, userId)
+					.getResultList().get(0);
+			
+		} catch (Exception e) {
+			System.out.println("eroor in hql "+ e);
+			return null;		
+		}
+		return student;
+	}
 }

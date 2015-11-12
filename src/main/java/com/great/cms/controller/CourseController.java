@@ -47,7 +47,8 @@ public class CourseController {
 		
 		User user = userService.getUserByName(username);
 		// TODO: use username to return filtered course list
-		List<Course> courses = courseService.getCourseListByUserId(user.getUserId());
+		List<Course> courses = null;
+		courses = courseService.getCourseListByUserType(user);
 		
 
 		jsonArray = new JSONArray();

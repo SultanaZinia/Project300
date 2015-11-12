@@ -54,9 +54,9 @@
                  col-sm-5 col-sm-offset-1
                  col-xs-12">
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Profile</a></li>
+			<li><a href="#">${UserRole.getUserName()}</a></li>
 			<li><a href="#">Settings</a></li>
-			<li><a href="sign-in.html">${username}</a></li>
+			<li><a href="sign-in.html">Log Out</a></li>
 		</ul>
 	</div>
 </div>

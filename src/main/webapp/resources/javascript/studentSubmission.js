@@ -1,4 +1,7 @@
-var submissionURL = "ajaxsubmissions";
+/**
+ * 
+ */
+var stdsubmissionURL = "ajaxstudentsubmissions";
 var submissionID;
 var addSubmissionURL = "addsubmission";
 var editSubmissionURL = "editsubmission"
@@ -7,14 +10,14 @@ var action = 'edit';
 var addSubmissionURL = "addsubmission";
 var editSubmissionURL = "editsubmission";
 var deleteSubmissionURL = "deletesubmission";
-var submissionTable;
+var stdsubmissionTable;
 
 $(document)
 		.ready(
 				function() {
 					
 					$('[data-toggle="tooltip"]').tooltip();
-					submissionTable = $('#submissionTable')
+					stdsubmissionTable = $('#stdsubmissionTable')
 							.DataTable(
 									{
 										"dom" : 'lrtip',
@@ -41,21 +44,9 @@ $(document)
 													"visible" : false
 
 												},
-												{
-													"mData" : null,
-													"bSortable" : false,
-													"sWidth" : "10%",
-													"mRender" : function(data,
-															type, full) {
-														return '<a class="btn btn-info btn-sm editbutton">'
-																+ '<i class="glyphicon glyphicon-edit "></i></a>'
-																+ '<a class="btn btn-danger btn-sm removebutton">'
-																+ '<i class="glyphicon glyphicon-remove "></i></a>';
-													}
-												}
-												],
+												 ],
 										ajax : {
-											url : submissionURL + "?group_id="
+											url : stdsubmissionURL + "?group_id="
 													+ getUrlVars()["group_id"],
 											dataType : 'json'
 										}
@@ -75,17 +66,7 @@ $(document)
 										submissionTable.cell(this, 1).data());
 								$("#view_submission_comment").html(
 										submissionTable.cell(this, 2).data());
-								if(submissionTable.cell(this, 3)
-														.data() === null)
-									$("#view_submission_download").hide()
-								else{
-								$("#view_submission_download").attr(
-										"href",
-										"downloadfile?filename="
-												+ submissionTable.cell(this, 3)
-														.data());
-								$("#view_submission_download").show()
-								}
+								
 								$('#modalSubmissionInfo').modal('show');
 							});
 
@@ -102,7 +83,7 @@ $(document)
 					});
 
 					// show Submission Edit modal on button click
-					$('#submissionTable tbody').on(
+					/*$('#submissionTable tbody').on(
 							'click',
 							'td a.editbutton',
 							function(e) {
@@ -121,10 +102,10 @@ $(document)
 												.data());
 								$("#edit_submission_file").val(null);
 								$('#modalSubmissionEdit').modal('show');
-							});
+							});*/
 
 					// show Submission Delete Modal on button click
-					$('#submissionTable tbody').on(
+					/*$('#submissionTable tbody').on(
 							'click',
 							'td a.removebutton',
 							function(e) {
@@ -137,17 +118,17 @@ $(document)
 								submissionID = submissionTable
 										.cell(rowIndex, 0).data();
 								$('#modalSubmissionDelete').modal('show');
-							});
+							});*/
 
 					// Submit Submission add/edit form
-					$('#edit_submission').submit(function(event) {
+					/*$('#edit_submission').submit(function(event) {
 						saveMedia();
 						//submissionTable.ajax.reload();
 						event.preventDefault();
-					});
+					});*/
 
 					// Submit Submission Delete form
-					$('#buttonSubmissionDelete').on(
+					/*$('#buttonSubmissionDelete').on(
 							'click',
 							function(event) {
 								$.ajax({
@@ -163,7 +144,7 @@ $(document)
 										submissionTable.ajax.reload();
 									}
 								}), event.preventDefault();
-							});
+							});*/
 
 				});
 
@@ -212,4 +193,3 @@ function getUrlVars() {
 		vars[hash[0]] = hash[1];
 	}
 	return vars;
-}

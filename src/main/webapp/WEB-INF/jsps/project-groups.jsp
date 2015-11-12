@@ -51,13 +51,14 @@
                  col-sm-5 col-sm-offset-1
                  col-xs-12">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Profile</a></li>
+				<li><a href="#">${UserRole.getUserName()}</a></li>
 				<li><a href="#">Settings</a></li>
 				<li><a href="sign-in.html">Log out</a></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
+	
 
 	<div class="container">
 		<div class="row searchbar">
@@ -72,10 +73,23 @@
 					aria-controls="myTable"> </input>
 			</div>
 			<div class="col-xs-4 rowAddButton">
-				<button id="button_add_project"
-					class="btn btn-success">
+			
+				<c:choose>
+					<c:when
+						test="${UserRole.getUserTypeId().getUserTypeName() eq 'Student'}">
+						<button id="button_add_project"
+					class="btn btn-success" disabled="disabled">
 					<i class="glyphicon glyphicon-plus-sign"></i> Add Project
 				</button>
+					</c:when>
+					<c:otherwise>
+						<button id="button_add_project"
+					class="btn btn-success" >
+					<i class="glyphicon glyphicon-plus-sign"></i> Add Project
+				</button>
+					</c:otherwise>
+				</c:choose>
+				
 			</div>
 			</div>
 			<table id="projectTable"
@@ -132,10 +146,24 @@
 		<!-- panel 1-->
 		<div class="panel col-lg-6 col-sm-6">
 			<div class="rowAddButton">
-				<button id="button_add_group"
-					class="btn btn-success col-xs-4 col-xs-offset-8">
+			
+			
+			<c:choose>
+					<c:when
+						test="${UserRole.getUserTypeId().getUserTypeName() eq 'Student'}">
+						<button id="button_add_group"
+					class="btn btn-success col-xs-4 col-xs-offset-8"  disabled="disabled">
 					<i class="glyphicon glyphicon-plus-sign"></i> Add Groups
 				</button>
+					</c:when>
+					<c:otherwise>
+						<button id="button_add_group"
+					class="btn btn-success col-xs-4 col-xs-offset-8" >
+					<i class="glyphicon glyphicon-plus-sign"></i> Add Groups
+				</button>
+					</c:otherwise>
+				</c:choose>
+				
 			</div>
 			<table id="groupTable"
 				class="table table-striped table-bordered table-hover">

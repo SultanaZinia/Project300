@@ -113,7 +113,7 @@
 						<th class="col-md-1 col-sm-1 col-xs-1">Total No. Of Groups</th>
 
 						<th class="col-md-1 col-sm-1 col-xs-1">Total Submission</th>
-						<th class="col-md-2 col-sm-2 col-xs-2">Actions</th>
+					
 					</tr>
 				</thead>
 				<tbody>

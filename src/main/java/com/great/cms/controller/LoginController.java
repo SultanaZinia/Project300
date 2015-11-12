@@ -2,6 +2,7 @@ package com.great.cms.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.great.cms.db.entity.User;
+import com.great.cms.db.entity.UserType;
 import com.great.cms.service.UserService;
 
 @Controller
+@SessionAttributes("UserRole")
 public class LoginController {
 
 	@Autowired
@@ -36,15 +40,18 @@ public class LoginController {
 		}
 
 		else if (user.getPassword().equals(password)) {
-
+			
+            UserType Type= user.getUserTypeId();
+            
 			System.out.println("User Id: " + user.getUserId());
 			model.addAttribute("userId", user.getUserId());
 			model.addAttribute("username", username);
+			model.addAttribute("UserRole" , user);
 			// request.setAttribute("userId",user.getUserId().toString());
-
-			System.out.println("Username: " + username);
+            
+			System.out.println("Role: " + user.getUserTypeId().getUserTypeName());
 			System.out.println("Password: " + password);
-			return "course";
+			return "studentTask";
 		}
 
 		else {
@@ -53,6 +60,16 @@ public class LoginController {
 			return "login";
 		}
 
+	}
+	
+	@RequestMapping(value = "/sign-in.html", method = RequestMethod.GET)
+	public String logOut( Model model) {
+		
+		return "login";
+		
+		
+		
+	
 	}
 
 }

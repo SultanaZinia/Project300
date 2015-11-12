@@ -25,7 +25,7 @@ import com.great.cms.service.QuestionService;
 import com.great.cms.service.SubmissionService;
 
 @Controller
-@SessionAttributes("organization")
+
 public class QuestionController {
 
 	@Autowired

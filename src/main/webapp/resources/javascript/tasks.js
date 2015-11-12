@@ -5,10 +5,12 @@ var deleteTaskURL = "deletetask";
 var tempURL = taskURL;
 var taskID;
 var delID;
+var role= "<%= UserRole.getUserTypeId().getUserTypeName() %>"
 
 $(document)
 		.ready(
 				function() {
+					alert(role);
 					var taskTable;
 					var items = "";
 					// Get session list for drop down options
@@ -77,6 +79,7 @@ $(document)
 														return '<a class="btn btn-info btn-sm editbutton"><i class="glyphicon glyphicon-edit "></i></a>'
 																+ '<a class="btn btn-danger btn-sm removebutton"><i class="glyphicon glyphicon-remove "></i></a>';
 													}
+												   
 												} ],
 										ajax : {
 											url : taskURL+"?course_id="+ getUrlVars()["course_id"],
@@ -127,6 +130,8 @@ $(document)
 									'click',
 									'td a.editbutton',
 									function(e) {
+										
+										
 										e.stopImmediatePropagation();
 										tempURL = editTaskURL;
 										var rowIndex = taskTable.cell(
@@ -173,6 +178,7 @@ $(document)
 										$('#edit_task_total_submission').val(
 												taskTable.cell(rowIndex, 7)
 														.data());
+										
 
 									});
 

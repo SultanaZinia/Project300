@@ -1,13 +1,9 @@
 package com.great.cms.controller;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -16,25 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.omg.CORBA.portable.OutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
 import com.great.cms.bean.SubmissionBean;
 import com.great.cms.db.dao.SubmissionDao;
 import com.great.cms.db.entity.Submission;
-import com.great.cms.db.entity.Task;
 import com.great.cms.service.ProjectGroupSubmitService;
 import com.great.cms.service.SubmissionService;
 
@@ -130,12 +118,12 @@ public class SubmissionController {
 				.println("We're in addSubmission/doUpload method.\nfilename: "
 						+ multipartFile.getOriginalFilename() + "\nComment: "
 						+ submissionBean.getCommentTeacher());
-		// Uploading file to a specific folder//
+		//Uploading file to a specific folder//
 
 		// InputStream inputStream = null;
-		// FileOutputStream outputStream =null;
-		//
-		// if(multipartFile.getSize()>0){
+		 //FileOutputStream outputStream =null;
+		
+		 //if(multipartFile.getSize()>0){
 		// try {
 		// inputStream = multipartFile.getInputStream();
 		// outputStream = new

@@ -11,18 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
 import com.great.cms.bean.QuestionBean;
 import com.great.cms.db.dao.CourseDao;
 import com.great.cms.db.dao.QuestionDao;
-import com.great.cms.db.dao.SubmissionDao;
 import com.great.cms.db.entity.Course;
 import com.great.cms.db.entity.Question;
-import com.great.cms.db.entity.Submission;
-import com.great.cms.service.ProjectGroupSubmitService;
 import com.great.cms.service.QuestionService;
-import com.great.cms.service.SubmissionService;
 
 @Controller
 

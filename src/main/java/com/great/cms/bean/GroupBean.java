@@ -2,8 +2,6 @@ package com.great.cms.bean;
 
 import java.util.ArrayList;
 
-import com.great.cms.db.entity.Task;
-
 public class GroupBean {
 	private int groupId;
 	private ArrayList<String> memberList;

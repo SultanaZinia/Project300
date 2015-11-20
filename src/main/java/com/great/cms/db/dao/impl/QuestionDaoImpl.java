@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.great.cms.db.dao.CourseDao;
 import com.great.cms.db.dao.QuestionDao;
-import com.great.cms.db.entity.Course;
-import com.great.cms.db.entity.Department;
 import com.great.cms.db.entity.Question;
 
 

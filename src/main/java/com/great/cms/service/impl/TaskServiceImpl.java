@@ -3,8 +3,6 @@ package com.great.cms.service.impl;
 import java.io.Serializable;
 import java.util.List;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

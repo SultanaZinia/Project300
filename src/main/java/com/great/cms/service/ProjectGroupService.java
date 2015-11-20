@@ -6,13 +6,9 @@ import java.util.List;
 
 
 
-import com.great.cms.db.entity.Groups;
 import com.great.cms.db.entity.Student;
-import com.great.cms.db.entity.Task;
-
 import com.great.cms.bean.GroupBean;
 import com.great.cms.bean.GroupInputBean;
-import com.great.cms.db.entity.Student;
 
 public interface ProjectGroupService {
 	

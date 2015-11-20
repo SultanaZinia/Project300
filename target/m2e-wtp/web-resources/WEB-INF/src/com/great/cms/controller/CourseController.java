@@ -2,8 +2,6 @@ package com.great.cms.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.great.cms.db.dao.CourseDao;
 import com.great.cms.db.entity.Course;
-import com.great.cms.db.entity.CourseRegistration;
 import com.great.cms.db.entity.User;
-import com.great.cms.repository.CourseRepository;
 import com.great.cms.service.CourseRegistrationService;
 import com.great.cms.service.CourseService;
 import com.great.cms.service.UserService;
@@ -40,17 +35,18 @@ public class CourseController {
 	
 
 	@SuppressWarnings("unchecked")
-	@RequestMapping(method = RequestMethod.GET, value = "/ajaxcourse")
+	@RequestMapping(method = RequestMethod.GET, value = "/ajaxstdcourse")
 	public @ResponseBody
-	String getCourse(@RequestParam("username") String username) {
+	String getStdCourse(@RequestParam("username") String username ,Model model) {
 
-		
+		System.out.println("In course Controller");
 		User user = userService.getUserByName(username);
 		// TODO: use username to return filtered course list
 		List<Course> courses = null;
 		courses = courseService.getCourseListByUserType(user);
-		
-
+		model.addAttribute("username", username);
+		model.addAttribute("user",user);
+     System.out.println("courseController" +user.getUserName());
 		jsonArray = new JSONArray();
 		if (courses == null)
 			System.out.println("CourseController : LIST IS NULL");
@@ -71,6 +67,45 @@ public class CourseController {
 		parameters.put("data", jsonArray);
 		String taskJson = parameters.toJSONString();
 
+		System.out.println("going to course page std course");
+		return taskJson;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(method = RequestMethod.GET, value = "/ajaxcourse")
+	public @ResponseBody
+	String getCourse(@RequestParam("username") String username, Model model) {
+
+		System.out.println("In course Controller");
+		User user = userService.getUserByName(username);
+		model.addAttribute("username", username);
+		model.addAttribute("user",user);
+		// TODO: use username to return filtered course list
+		List<Course> courses = null;
+		courses = courseService.getCourseListByUserType(user);
+		
+     System.out.println("courseController " +user.getUserName());
+		jsonArray = new JSONArray();
+		if (courses == null)
+			System.out.println("CourseController : LIST IS NULL");
+
+		for (Course c : courses) {
+			JSONArray jObj = new JSONArray();
+			jObj.add(c.getCourseId());
+			jObj.add(c.getCourseCode());
+			jObj.add(c.getCourseTitle());
+			jObj.add(c.getCredit());
+			jsonArray.add(jObj);
+		}
+		JSONObject parameters = new JSONObject();
+
+		parameters.put("draw", 1);
+		parameters.put("recordsTotal", 1);
+		parameters.put("recordsFiltered", 1);
+		parameters.put("data", jsonArray);
+		String taskJson = parameters.toJSONString();
+
+		System.out.println("going to teacher course page course");
 		return taskJson;
 	}
 }

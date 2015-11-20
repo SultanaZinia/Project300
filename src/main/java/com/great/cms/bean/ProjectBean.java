@@ -7,6 +7,7 @@ public class ProjectBean {
 	private String projectTitle;
 	private String projectDesc;
 
+	@Override
 	public String toString() {
 		return "UPDATED PARAMETERS:\nProject Id: " + this.projectId
 				+ " Project Title: " + this.projectTitle

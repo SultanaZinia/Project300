@@ -19,7 +19,6 @@ import com.great.cms.db.entity.Course;
 import com.great.cms.db.entity.Department;
 import com.great.cms.db.entity.Question;
 import com.great.cms.service.QuestionService;
-import com.great.cms.service.SubmissionService;
 
 @Service("QuestionService")
 public class QuestionServiceImpl implements QuestionService,Serializable {

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.great.cms.db.dao.ExamCommitteeDao;
-import com.great.cms.db.entity.CourseRegistration;
 import com.great.cms.db.entity.ExamCommittee;
 @Repository("ExamCommitteeDao")
 public class ExamCommitteeDaoImpl extends GenericDaoImpl<ExamCommittee, Integer> implements ExamCommitteeDao {

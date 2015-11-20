@@ -14,7 +14,6 @@ import com.great.cms.db.dao.TaskDao;
 import com.great.cms.db.dao.TaskProjectDao;
 import com.great.cms.db.entity.ExamCommittee;
 import com.great.cms.db.entity.Project;
-import com.great.cms.db.entity.Task;
 import com.great.cms.db.entity.TaskProject;
 import com.great.cms.service.TaskProjectService;
 

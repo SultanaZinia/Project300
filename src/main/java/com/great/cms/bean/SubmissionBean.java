@@ -1,7 +1,5 @@
 package com.great.cms.bean;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class SubmissionBean {
 	private String commentTeacher;
 	private String submissionTime;

@@ -2,13 +2,8 @@ package com.great.cms.db.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.great.cms.db.dao.CourseDao;
 import com.great.cms.db.dao.TaskDao;
-import com.great.cms.db.entity.Course;
 import com.great.cms.db.entity.CourseRegistration;
 import com.great.cms.db.entity.Task;
 

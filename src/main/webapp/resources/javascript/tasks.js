@@ -5,12 +5,12 @@ var deleteTaskURL = "deletetask";
 var tempURL = taskURL;
 var taskID;
 var delID;
-var role= "<%= UserRole.getUserTypeId().getUserTypeName() %>"
+
 
 $(document)
 		.ready(
 				function() {
-					alert(role);
+					
 					var taskTable;
 					var items = "";
 					// Get session list for drop down options

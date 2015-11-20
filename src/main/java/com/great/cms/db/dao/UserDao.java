@@ -3,9 +3,6 @@
  */
 package com.great.cms.db.dao;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.great.cms.db.entity.User;
 
 /**

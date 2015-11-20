@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.great.cms.db.dao.CourseDao;
@@ -67,7 +66,7 @@ public class CourseServiceImpl implements CourseService, Serializable{
 		List<Course> list = null;
 		list = new ArrayList<>();
 		List<Teaches> teaches = new ArrayList<>();
-		teacher = (Teacher) teacherDao.findByUserId(id);
+		teacher = teacherDao.findByUserId(id);
 		if(teacher == null)	
 			System.out.println("Null teacher");
 			

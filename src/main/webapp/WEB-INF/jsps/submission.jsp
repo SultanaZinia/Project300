@@ -1,5 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<% response.setHeader("Cache-Control","no-cache"); 
+/*HTTP 1.1*/ response.setHeader("Pragma","no-cache"); 
+/*HTTP 1.0*/ response.setDateHeader ("Expires", 0);
+%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -48,7 +51,7 @@
             </div>
             <div class="col-xs-2">	
 						
-						<button id="button_add_submission" class="btn btn-success col-xs-12" disabled="disabled">
+						<button id="button_add_submission" class="btn btn-success col-xs-12" >
                     <i class="glyphicon glyphicon-plus-sign"></i>
                     Add
                 </button>

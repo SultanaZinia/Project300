@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.hibernate.hql.classic.GroupByParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +40,7 @@ public class ProjectGroupServiceImpl implements ProjectGroupService,Serializable
 	@Autowired
 	private ProjectDao projectDao;
 	
+	@Override
 	public List<GroupBean> findGroupsByProjectId(int projectId) {
 		
 		List<ProjectGroup> projectGroupList = projectGroupDao.findAll();

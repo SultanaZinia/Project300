@@ -58,10 +58,10 @@ public class GenericDaoImpl<T extends DomainObject, ID extends Serializable> imp
     @Transactional(readOnly = true)
     public T findById(ID id) throws RuntimeException {
     	T ret = null;
-    	System.out.println("ID NOT FOUND---1");
+    	
 
     	try{
-        	System.out.println("ID NOT FOUND--2");
+        
 
     		ret = findByIdNativeType(id);
     	}

@@ -1,12 +1,8 @@
 package com.great.cms.db.dao.impl;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
-import com.great.cms.db.dao.QuestionDao;
 import com.great.cms.db.dao.QuestionTypeDao;
-import com.great.cms.db.entity.Question;
 import com.great.cms.db.entity.QuestionType;
 
 

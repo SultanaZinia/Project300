@@ -154,8 +154,8 @@ $(document)
 							'tr',
 							function(e) {
 								var rowIndex = groupTable.row(this).index();
-								var redirectWithParam = "submission?group_id="
-										+ groupTable.cell(rowIndex, 0).data();
+								var redirectWithParam = "submissions?group_id="
+										 +groupTable.cell(rowIndex, 0).data();
 								window.location.href = redirectWithParam;
 							});
 

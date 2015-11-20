@@ -1,12 +1,9 @@
 package com.great.cms.db.dao.impl;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 import com.great.cms.db.dao.CourseDao;
 import com.great.cms.db.entity.Course;
-import com.great.cms.db.entity.CourseRegistration;
 
 @Repository("CourseDao")
 public class CourseDaoImpl extends GenericDaoImpl<Course, Integer> implements CourseDao {

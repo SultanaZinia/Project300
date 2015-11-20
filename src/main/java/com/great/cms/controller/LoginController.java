@@ -6,11 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.great.cms.db.entity.User;
@@ -34,6 +32,7 @@ public class LoginController {
 		User user = null;
 
 		user = userService.getUserByName(username);
+		System.out.println("loginController");
 		if (user == null) {
 			model.addAttribute("message", "Invalid usrname or password");
 			return "login";
@@ -47,11 +46,16 @@ public class LoginController {
 			model.addAttribute("userId", user.getUserId());
 			model.addAttribute("username", username);
 			model.addAttribute("UserRole" , user);
-			// request.setAttribute("userId",user.getUserId().toString());
-            
-			System.out.println("Role: " + user.getUserTypeId().getUserTypeName());
+			
 			System.out.println("Password: " + password);
-			return "studentTask";
+			String Role=user.getUserTypeId().getUserTypeName();
+			System.out.println("role now "+Role);
+			if(Role.equals("Teacher")){
+				System.out.println("Going to teacher course");
+				return "course";
+			}
+			else
+			return "stdcourse";
 		}
 
 		else {

@@ -52,6 +52,8 @@ public class Submission implements Serializable,DomainObject {
     @Basic(optional = false)
     @Column(name = "submission_time")
     private String submissionTime;
+    @Column(name="submission_url")
+    private String submissionUrl;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "submissionId")
     private List<ProjectGroupSubmit> projectGroupSubmitList;
 
@@ -106,6 +108,15 @@ public class Submission implements Serializable,DomainObject {
     public void setSubmissionTime(String submissionTime) {
         this.submissionTime = submissionTime;
     }
+    
+    public void setSubmissionUrl(String submissionUrl){
+    	this.submissionUrl = submissionUrl;
+    }
+    
+    public String getSubmissionUrl()
+    {
+    	return submissionUrl;
+    }
 
     @XmlTransient
     public List<ProjectGroupSubmit> getProjectGroupSubmitList() {
@@ -138,7 +149,7 @@ public class Submission implements Serializable,DomainObject {
 
     @Override
     public String toString() {
-        return "com.sustarchive.app.model.Submission[ submissionId=" + submissionId + " ]";
+        return "com.sustarchive.app.model.Submission[ submissionId=" + submissionId +"submissionComment="+commentTeacher+" submissionUrl="+submissionUrl+ " ]";
     }
     
 }
